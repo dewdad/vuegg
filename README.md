@@ -158,11 +158,26 @@ Navigate to `localhost:5000` to serve (a production-ready) vuegg.
 
 </br>
 
-### Local setup gotchas
+### Connect with github
 
-> If you were to find any problem during the local setup of vuegg, here are some known issues/gotchas that may shed some light on how to carry on the process
+Vuegg makes use of `.env` files to set up some environment variables. The current setup allows you to have 3 files with different configurations: `.env`, `.env.dev` and/or `.env.test`, containing the following variables:
 
-- [#17](https://github.com/vuegg/vuegg/issues/17) (nodegit / libcurl / libssl)
+``` yaml
+# Create an OAuth App on github and use your client ID and Secret
+
+CLIENT_ID=y0urcl13nt1d
+CLIENT_SECRET=y0urcl13nts3cr3t
+CALLBACK_URL=http://localhost:8000/auth
+```
+
+> This files should exist only on your local machine, do not add them to the git repository.
+
+Now if you wish to test out the *connect with github* functionality on your local environment, it's necessary to run vuegg-client and vuegg-server through the following command:
+
+``` bash
+npm run oauth
+```
+You should be prompted with 3 options to pick. Run server and client in separate terminal instances.
 
 </br>
 
